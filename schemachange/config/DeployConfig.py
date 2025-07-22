@@ -15,6 +15,7 @@ from schemachange.config.utils import (
     get_snowflake_private_key_passphrase,
     get_snowflake_private_key_path,
     get_snowflake_token_file_path,
+    get_snowflake_private_key
 )
 
 
@@ -284,5 +285,9 @@ class DeployConfig(BaseConfig):
                 raise PermissionError(f"Permission denied reading token file: {token_file_path}") from None
             except Exception as e:
                 raise ValueError(f"Error reading token file {token_file_path}: {str(e)}") from e
+
+        snowflake_private_key = get_snowflake_private_key()
+        if snowflake_private_key:
+            session_kwargs["private_key"] = snowflake_private_key
 
         return {k: v for k, v in session_kwargs.items() if v is not None}
