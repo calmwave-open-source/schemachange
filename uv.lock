@@ -243,7 +243,6 @@ version = "46.0.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi", marker = "platform_python_implementation != 'PyPy'" },
-    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/60/04/ee2a9e8542e4fa2773b81771ff8349ff19cdd56b7258a0cc442639052edb/cryptography-46.0.5.tar.gz", hash = "sha256:abace499247268e3757271b2f1e244b36b06f8515cf27c4d49468fc9eb16e93d", size = 750064, upload-time = "2026-02-10T19:18:38.255Z" }
 wheels = [
@@ -723,6 +722,7 @@ version = "4.3.1"
 source = { editable = "." }
 dependencies = [
     { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "cryptography" },
     { name = "jinja2" },
     { name = "pyyaml" },
     { name = "snowflake-connector-python" },
@@ -740,6 +740,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "cryptography", specifier = "~=45.0.5" },
     { name = "jinja2", specifier = "~=3.0" },
     { name = "pre-commit", marker = "extra == 'dev'" },
     { name = "pyfakefs", marker = "extra == 'dev'" },
