@@ -10,12 +10,12 @@ from schemachange.config.utils import (
     get_snowflake_authenticator,
     get_snowflake_identifier_string,
     get_snowflake_password,
+    get_snowflake_private_key,
     get_snowflake_private_key_file,
     get_snowflake_private_key_file_pwd,
     get_snowflake_private_key_passphrase,
     get_snowflake_private_key_path,
     get_snowflake_token_file_path,
-    get_snowflake_private_key
 )
 
 
