@@ -289,5 +289,8 @@ class DeployConfig(BaseConfig):
         snowflake_private_key = get_snowflake_private_key()
         if snowflake_private_key:
             session_kwargs["private_key"] = snowflake_private_key
+            # Inline PEM takes precedence over file-based key
+            session_kwargs.pop("private_key_file", None)
+            session_kwargs.pop("private_key_file_pwd", None)
 
         return {k: v for k, v in session_kwargs.items() if v is not None}

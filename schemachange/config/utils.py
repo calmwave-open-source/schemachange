@@ -1074,10 +1074,10 @@ def get_all_snowflake_env_vars() -> dict:
 
     return snowflake_params
          
-def get_snowflake_private_key() -> str | PrivateKeyTypes:
-    snowflake_private_key = os.getenv("SNOWFLAKE_PRIVATE_KEY")
+def get_snowflake_private_key() -> None | PrivateKeyTypes:
+    snowflake_private_key = os.getenv("SNOWFLAKE_PRIVATE_KEY_PEM")
 
-    if snowflake_private_key is not None and snowflake_private_key:
+    if snowflake_private_key:
         return serialization.load_pem_private_key(
                 snowflake_private_key.encode('utf-8'),
                 password=None,
